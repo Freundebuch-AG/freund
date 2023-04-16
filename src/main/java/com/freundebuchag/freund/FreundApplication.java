@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FreundApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FreundApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FreundApplication.class, args);
+    }
 
 }
