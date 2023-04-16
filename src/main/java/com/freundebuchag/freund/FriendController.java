@@ -47,12 +47,12 @@ public class FriendController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<FriendResource> updateUser(
-            @PathVariable("id") Optional<Friend> user,
-            @RequestBody FriendRequest userRequest
+    public ResponseEntity<FriendResource> updateFriend(
+            @PathVariable("id") Optional<Friend> friend,
+            @RequestBody FriendRequest friendRequest
     ) {
-        return user
-                .map(current -> current = userRequest.toFriend(user.get().getId()))
+        return friend
+                .map(current -> current = friendRequest.toFriend(friend.get().getId()))
                 .map(friendService::update)
                 .map(friendResoucreAssembler::toResource)
                 .map(ResponseEntity::ok)
