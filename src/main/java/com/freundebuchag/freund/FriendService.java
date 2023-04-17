@@ -29,6 +29,8 @@ public class FriendService {
     }
 
     public Optional<Friend> findByIdOptional(UUID id) {
+        System.out.println(findById(id));
+        System.out.println("here");
         return friendRepository.findById(id);
     }
 

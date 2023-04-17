@@ -2,6 +2,7 @@ package com.freundebuchag.freund;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,7 +19,9 @@ import java.util.UUID;
 public class Friend {
     @JsonProperty("_id")
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "id", columnDefinition = "uuid")
     private UUID id;
 
     @Column(name = "FIRSTNAME", nullable = false)

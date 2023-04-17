@@ -1,5 +1,8 @@
 package com.freundebuchag.freund;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +43,13 @@ public class FriendController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<FriendResource> getFriend(@PathVariable("id") UUID id) {
+        Optional<Friend> friend = friendService.findByIdOptional(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+
+
         return friendService.findByIdOptional(id)
                 .map(friendResoucreAssembler::toResource)
                 .map(ResponseEntity::ok)
