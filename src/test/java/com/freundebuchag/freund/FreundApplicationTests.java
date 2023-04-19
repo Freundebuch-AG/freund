@@ -17,35 +17,7 @@ import java.time.LocalDate;
 
 @SpringBootTest
 class FreundApplicationTests {
-
-    @Value(value="8080")
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-    @Autowired
-    private FriendController friendController;
-    /*
     @Test
-    void contextLoads() throws Exception{
-        assertThat(friendController).isNotNull();
+    void contextLoads(){
     }
-
-    @Test
-    public void shouldCreateFirend() throws Exception {
-        //Given
-        final String baseUrl = "http://localhost:" + port + "/friend";
-        URI uri = new URI(baseUrl);
-        Friend friend = new Friend(null, "Angelina", "Otto", LocalDate.now(), "Bratkartoffeln", "Rochen", "Spino");
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-COM-PERSIST", "true");
-
-        HttpEntity<Friend> request = new HttpEntity<>(friend, headers);
-
-        ResponseEntity<FriendRequest> result = this.restTemplate.postForEntity(uri, request, FriendRequest.class);
-
-        assertThat(result.getStatusCodeValue() == 201);
-    }
-*/
 }

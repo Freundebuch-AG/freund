@@ -1,10 +1,7 @@
 package com.freundebuchag.freund;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
